@@ -5,7 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOM</title>
 </head>
-<body>
-    
+<body style="background-color: #212121; color: #ffff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
 </body>
+<script>
+
+    function addLanguage(langName){
+        const li= document.createElement('li');
+        li.innerText=langName;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage('python');
+    addLanguage('java');
+
+    function addOptiLang(langName){
+        const li= document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+
+    addOptiLang('C++');
+
+
+    // edit
+
+    const secongLang = document.querySelector('li:nth-child(2)')
+    // .innerText='C#';
+   const newLi = document.createElement('li')
+   newLi.textContent = 'C';
+   secongLang.replaceWith(newLi);
+
+   const firstLang = document.querySelector('li:first-child')
+    firstLang.outerHTML='<li>HTML</li>';
+
+
+    // remove
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.remove(); 
+</script>
 </html>
