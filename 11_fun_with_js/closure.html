@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>closure</title>
+  </head>
+  <body style="background-color: black">
+    <button id="orange">Orange</button>
+    <button id="green">Green</button>
+  </body>
+  <script>
+    //TODO:   Lexical Scope
+
+    // function init() {
+    //   let name = "Mozilla";
+    //   function displayName() {
+    //     console.log(name);
+    //   }
+    //   displayName();
+    // }
+    // init();
+
+    // function outer() {
+    //   let userName = "shreyas";
+    //   //   console.log(secret); // error secret is not defined because it is not in the scope
+    //   function inner() {
+    //     let secret = "12345";
+    //     console.log("inner", userName);
+    //   }
+
+    //   function innerTwo() {
+    //     console.log("innerTwo", userName);
+    //     // console.log(secret); // error secret is not defined because it is not in the scope
+    //   }
+
+    //   inner();
+    //   innerTwo();
+    // }
+    // outer();
+    // // console.log("too outer", userName);
+
+    //TODO:   Closure
+
+    // function makeFunc() {
+    //   const name = "Mozilla";
+    //   function displayName() {
+    //     console.log(name);
+    //   }
+    //   return displayName;
+    // }
+
+    // const myFunc = makeFunc();
+    // myFunc();
+
+    // document.getElementById("orange").addEventListener("click", function () {
+    //   document.body.style.backgroundColor = "orange";
+    // });
+
+    // document.getElementById("green").addEventListener("click", function () {
+    //   document.body.style.backgroundColor = "green";
+    // });
+
+    function clickHandler(color) {
+      return function () {
+        // closure function
+        document.body.style.backgroundColor = `${color}`;
+      };
+    }
+
+    document.getElementById("orange").onclick = clickHandler("orange");
+    document.getElementById("green").onclick = clickHandler("green");
+  </script>
+</html>
